@@ -6,6 +6,9 @@ const Page = () => {
   const router = useRouter();
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "";
   const { id } = router.query;
+  if (!id) {
+    return null;
+  }
 
   return (
     <>
