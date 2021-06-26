@@ -15,7 +15,7 @@ const Page = () => {
         <meta
           property="og:image"
           key="ogImage"
-          content={`${baseUrl}/ogp/${id}.png`}
+          content={`${baseUrl}/api/${id}`}
         />
         <meta
           name="twitter:card"
@@ -25,7 +25,7 @@ const Page = () => {
         <meta
           name="twitter:image"
           key="twitterImage"
-          content={`${baseUrl}/ogp/${id}.png`}
+          content={`${baseUrl}/api/${id}`}
         />
       </Head>
       <div>
