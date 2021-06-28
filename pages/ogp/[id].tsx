@@ -5,11 +5,7 @@ import { useRouter } from "next/router";
 const Page = () => {
   const router = useRouter();
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "";
-  // propsで送ったら解決する
   const { id } = router.query;
-  if (!id) {
-    return null;
-  }
 
   return (
     <>
