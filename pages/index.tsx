@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-const Home = () => {
+
+export default function Home() {
   const [text, setText] = useState<string>();
   const inputHandler = (e: { target: { value: string } }) => {
     setText(e.target.value);
@@ -18,5 +19,4 @@ const Home = () => {
       </main>
     </div>
   );
-};
-export default Home;
+}

@@ -2,13 +2,13 @@ import React from "react";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import Head from "next/head";
 
-type ServerSideProps = {
+type Props = {
   id: string;
 };
 
-export async function getServerSideProps(
+export const getServerSideProps = async (
   context: GetServerSidePropsContext
-): Promise<GetServerSidePropsResult<ServerSideProps>> {
+): Promise<GetServerSidePropsResult<Props>> => {
   if (typeof context.params?.id === "string") {
     return {
       props: {
@@ -20,9 +20,9 @@ export async function getServerSideProps(
       notFound: true,
     };
   }
-}
+};
 
-export default function Page({ id }: ServerSideProps) {
+const Page = ({ id }: Props) => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "";
   return (
     <>
@@ -48,4 +48,5 @@ export default function Page({ id }: ServerSideProps) {
       </div>
     </>
   );
-}
+};
+export default Page;
