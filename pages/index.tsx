@@ -11,7 +11,7 @@ const Home = () => {
       <main className={styles.main}>
         <input type="text" onChange={inputHandler} />
         {text?.trim() && (
-          <Link href={`/ogp/${text}`}>
+          <Link href={`/${text}`}>
             <a>OGPを作成する</a>
           </Link>
         )}
