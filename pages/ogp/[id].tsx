@@ -22,14 +22,11 @@ export async function getServerSideProps(
   }
 }
 
-export async function Page({ id }: ServerSideProps) {
+export default function Page({ id }: ServerSideProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "";
-
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
         <meta
           property="og:image"
           key="ogImage"
@@ -47,7 +44,7 @@ export async function Page({ id }: ServerSideProps) {
         />
       </Head>
       <div>
-        <h1>{id}のページだよ</h1>
+        <h1>ページid: {id}</h1>
       </div>
     </>
   );
