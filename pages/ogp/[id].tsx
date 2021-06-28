@@ -44,7 +44,7 @@ export default function Page({ id }: ServerSideProps) {
         />
       </Head>
       <div>
-        <h1>ページid: {id}</h1>
+        <h1>入力した文字: {id}</h1>
       </div>
     </>
   );

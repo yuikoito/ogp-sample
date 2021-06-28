@@ -63,7 +63,7 @@ const createOgp = async (
   ctx.fillStyle = "#000000";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  const title = String(id) + "のページのOGPだよーーー";
+  const title = "入力した文字は" + String(id) + "なのねん";
 
   const lines = createTextLines(canvas, title);
   lines.forEach((line, index) => {
