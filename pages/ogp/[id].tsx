@@ -1,11 +1,29 @@
 import React from "react";
+import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 
-const Page = () => {
-  const router = useRouter();
+type ServerSideProps = {
+  id: string;
+};
+
+export async function getServerSideProps(
+  context: GetServerSidePropsContext
+): Promise<GetServerSidePropsResult<ServerSideProps>> {
+  if (typeof context.params?.id === "string") {
+    return {
+      props: {
+        id: context.params?.id,
+      },
+    };
+  } else {
+    return {
+      notFound: true,
+    };
+  }
+}
+
+export async function Page({ id }: ServerSideProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "";
-  const { id } = router.query;
 
   return (
     <>
@@ -15,7 +33,7 @@ const Page = () => {
         <meta
           property="og:image"
           key="ogImage"
-          content={`${baseUrl}/api/${id}`}
+          content={`${baseUrl}/api/ogp?id=${id}`}
         />
         <meta
           name="twitter:card"
@@ -25,7 +43,7 @@ const Page = () => {
         <meta
           name="twitter:image"
           key="twitterImage"
-          content={`${baseUrl}/api/${id}`}
+          content={`${baseUrl}/api/ogp?id=${id}`}
         />
       </Head>
       <div>
@@ -33,6 +51,4 @@ const Page = () => {
       </div>
     </>
   );
-};
-
-export default Page;
+}
